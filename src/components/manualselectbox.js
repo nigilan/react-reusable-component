@@ -24,11 +24,13 @@ class ManualSelectBox extends React.Component {
                           ); 
 
                           this.setState({value : listItems});  
-                          console.log(listItems);
                         }
                         )
                         .catch((error) => 
-                        console.log(error)
+                        {
+                          console.log(error);
+                          this.setState({value : []});
+                        }
                         );
       }
     }
@@ -36,17 +38,14 @@ class ManualSelectBox extends React.Component {
     handleChange = event => {
       console.log(event.target.value);
       const selectedOption = event.target.value;
-      //this.setState( {value : selectedOption});
       console.log(`Option selected:`, selectedOption);
     }
 
-    render() {
-      console.log(this.state.value, "test the value"); 
-      
+    render() {      
       return (
-        <div>
-        <p>Showing savings account for : {this.props.name}</p>
-        <select onChange={this.handleChange}>
+        <div className="manual-select-box">
+        <p>Showing account details for : <strong>{this.props.name}</strong></p>
+        <select className="manual-select" onChange={this.handleChange}>
           {this.state.value}
          </select>   
          </div>

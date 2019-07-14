@@ -1,40 +1,66 @@
+html, body { 
+  padding: 0px; 
+  margin: 0px; 
+  width: 100%; 
+  height: 100%;
+  background-color: beige; 
+}
+
+#root {
+  width: 100%;
+  padding: 50px;
+  font-size: 20px;
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  margin : 0 auto;
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.inputContainer{
+  font-size: 20px;
+}
+.inputName {
+  width: 20%;
+  height: 35px;
+  border: 1px solid aqua; 
+  font-size: large;
+  padding-left : 2px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
-.testheader {
-  color: #61dafb;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+input[type=button] {
+  background-color:aqua;
+  border: none;
+  color: black;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size:20px;
 }
 
-.App-header {
-  
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#errMessage{
+  color:red;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.manual-select-box {
+  margin-bottom: 20px;
+  height: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.manual-select {
+  width: 20%;
+  height: 40px;;
+  border-color: aqua;
+  font-size: 20px;
+}
+
+.react-select-container {
+  width: 20%;
+  margin: 0 auto;
 }

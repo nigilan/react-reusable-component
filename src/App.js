@@ -3,40 +3,50 @@ import './App.css';
 import SelectBox from './components/selectbox';
 import ManualSelectBox from './components/manualselectbox';
 
-let nameString = '';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: ''
+      username: '',
+      nameString : ''
     };
   }
 
   getInputValues = (event) => {
     document.getElementById('errMessage').textContent = "";
-    nameString = event.target.value;
+    this.setState({nameString :  event.target.value});
+    this.setState({username : ''});
+  }
+
+  handleKeyPress = (target) => {
+    if(target.charCode===13){
+       this.submitClick();  
+    }
   }
 
   submitClick = () => {
-    const username = nameString;
-    this.setState({username});
-    if (!username) {
-      document.getElementById('errMessage').textContent = "Enter only valid values";
+    this.setState({username : this.state.nameString});
+    if (!this.state.nameString) {
+      document.getElementById('errMessage').textContent = "**Enter only valid values";
     }
   }
 
   render() {
     return (
       <div className="App">
-      <div><input className='inputName' type='text' placeholder='john,nigilan,shiva,kumar' onChange={this.getInputValues}>
-      </input><span id='errMessage'></span>
+      <div><input autoFocus className='inputName' type='text' placeholder='john,nigilan,shiva,kumar' onChange={this.getInputValues} onKeyPress={this.handleKeyPress}>
+      </input>
+      <div id='errMessage'></div>
       </div>
       <div>
-      <input type='button' value='change' onClick={this.submitClick}></input>
+      <input type='button' value='Show Accounts' onClick={this.submitClick}></input>
       </div>
-      <SelectBox name={this.state.username}/>
+
       <ManualSelectBox name={this.state.username}/>
+
+      <SelectBox name={this.state.username}/>
+      
     </div>
     );
   }
